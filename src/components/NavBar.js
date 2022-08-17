@@ -1,4 +1,6 @@
-const NavBar = () =>{
+import CartWidget from "./CartWidget";
+
+const NavBar = () => {
     return(
         <div className="navBar">
             <div className="logo">
@@ -9,6 +11,7 @@ const NavBar = () =>{
                 <a href="https://google.com" target="_blank" rel="noreferrer">Envíos</a>
                 <a href="https://google.com" target="_blank" rel="noreferrer">Contacto</a>
             </div>
+            <CartWidget />
         </div>
     );
 };

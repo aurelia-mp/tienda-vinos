@@ -1,3 +1,4 @@
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import NavBar from "./components/NavBar";
 
 function App() {
@@ -6,9 +7,7 @@ function App() {
       <header>
         <NavBar/>
       </header>
-      <main>
-        <h1>En construcción</h1>
-      </main>
+      <ItemListContainer saludo='Bienvenido a Tienda de Vinos. Sitio en construcción' />
       <footer className="footer">
         <p>Footer</p>
       </footer>
