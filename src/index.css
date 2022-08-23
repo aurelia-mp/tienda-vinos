@@ -40,6 +40,12 @@ body, button{
   justify-content: space-between;
 }
 
+.cart{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 /* Estilos de Footer */
 .footer{
   position: fixed;
@@ -73,6 +79,12 @@ body, button{
   padding: 10px;
   text-transform: uppercase;
   font-weight: bold;
+}
+
+.counterBlock button:disabled{
+  background-color: grey ;
+  color: lightgrey;
+  cursor:not-allowed
 }
 
 .counter{

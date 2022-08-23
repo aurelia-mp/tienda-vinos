@@ -2,7 +2,7 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import NavBar from "./components/Header/NavBar";
 import ItemCount from "./components/ItemCount/ItemCount";
 
-function App() {
+function App() { 
   const onAdd = (cantidad, articulo) =>{
     console.log(`${cantidad} ${articulo} agregados al carrito`)
   }
@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       <header>
-        <NavBar/>
+        <NavBar />
       </header>
       <ItemListContainer saludo='Bienvenido a Tienda de Vinos. Sitio en construcción' />
       <ItemCount stock='10' initial='0' onAdd={onAdd}/>
