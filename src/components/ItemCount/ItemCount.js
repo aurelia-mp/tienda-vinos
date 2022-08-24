@@ -13,12 +13,10 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
     // Se definen el nombre del articulo y su ID para generar dinámicamente el titúlo y foto
     const itemName = "Luigi Bosca Malbec";
-    const itemId = 1;
     
   return (
     <div className="counterBlock">
         <h4>{itemName}</h4>
-        <img src={`../img/item${itemId}.jpeg`} alt={itemName}/>
         <div className="counter">
           <button className="counterButton" onClick={restar}>-</button>
           <p>{counter}</p>

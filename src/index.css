@@ -58,7 +58,7 @@ body, button{
 }
 
 /* Estilos de Counter */ 
-.counterBlock{
+.counterBlock, .itemCard{
   text-align: center;
   width: 20%;
   margin-left: 50px;
@@ -68,11 +68,7 @@ body, button{
   border-color: black;
 }
 
-.counterBlock img{
-  width: 150px;
-}
-
-.counterBlock button{
+.counterBlock button, .itemCard button{
   border-width: 0;
   background-color: #0e52b7d8 ;
   color: white;
@@ -103,4 +99,27 @@ body, button{
   height: 30px;
   padding: 0;
   background-color: black;
+}
+
+.itemCard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  width: 20%;
+  margin-left: 50px;
+  padding: 15px;
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: black;
+}
+
+.itemList{
+  display: flex;
+  flex-direction: row;
+}
+
+.itemCard img{
+  width: 150px;
 }
