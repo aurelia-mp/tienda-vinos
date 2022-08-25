@@ -7,7 +7,7 @@ const Item = ({item}) => {
         <p>{item.description}</p>
         <p>{item.precio}</p>
         <img src={item.img} alt={item.title}/>
-        <button className={item.stock === 0 && "sinStock"}>Stock: {item.stock}</button>
+        <button className={item.stock === 0 ? "sinStock" : undefined}>Stock: {item.stock}</button>
         <p className="tags">Categoría: {item.category}</p>
     </div>         
   )
