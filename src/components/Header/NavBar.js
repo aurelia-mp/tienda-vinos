@@ -1,6 +1,6 @@
 import CartWidget from "./CartWidget";
 
-const NavBar = () => {
+const NavBar = ({counter}) => {
     return(
         <div className="navBar">
             <div className="logo">
@@ -11,7 +11,7 @@ const NavBar = () => {
                 <a href="https://google.com" target="_blank" rel="noreferrer">Envíos</a>
                 <a href="https://google.com" target="_blank" rel="noreferrer">Contacto</a>
             </div>
-            <CartWidget />
+            <CartWidget counter={counter}/>
         </div>
     );
 };
