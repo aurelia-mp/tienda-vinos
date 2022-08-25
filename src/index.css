@@ -58,7 +58,12 @@ body, button{
 }
 
 /* Estilos de Counter */ 
-.counterBlock, .itemCard{
+.counterBlock{
+  text-align: center;
+  width:auto 50%;
+}
+
+.itemCard{
   text-align: center;
   width: 20%;
   margin-left: 50px;

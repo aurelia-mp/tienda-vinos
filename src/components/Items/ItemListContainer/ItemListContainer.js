@@ -3,7 +3,7 @@ import estilos from './items.module.css'
 import { productos } from '../../../productos';
 import ItemList from './ItemList';
 
-const ItemListContainer = ({saludo}) => {
+const ItemListContainer = ({saludo, onAdd}) => {
   const[items, setItems] = useState([]);
 
   useEffect(()=>{
@@ -22,7 +22,7 @@ const ItemListContainer = ({saludo}) => {
   return (
     <div className={estilos.mainContainer}>
       <h1>{saludo}</h1>
-      <ItemList items={items} />
+      <ItemList items={items} onAdd={onAdd} />
     </div>
   )
 }
