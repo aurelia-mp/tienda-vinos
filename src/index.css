@@ -68,7 +68,7 @@ body, button{
   border-color: black;
 }
 
-.counterBlock button, .itemCard button{
+.counterBlock button{
   border-width: 0;
   background-color: #0e52b7d8 ;
   color: white;
@@ -122,4 +122,28 @@ body, button{
 
 .itemCard img{
   width: 150px;
+  margin-bottom: 20px;
+}
+
+.itemCard .tags{
+  color:#722F37;
+  font-weight: 200;
+}
+
+.itemCard button{
+  border-width: 0;
+  background-color: #0e52b7d8 ;
+  color: white;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.itemCard .sinStock{
+  border-width: 0;
+  background-color: #676b72d8 ;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: 200;
 }

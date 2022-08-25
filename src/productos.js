@@ -13,17 +13,17 @@ export const productos = [
         title : "Luigi Bosca Sauvignon Blanc",
         description : "Vino bodega Luigi Bosca. Beber frío",
         price : 400,
-        stock: 50,
+        stock: 20,
         category: "blancos",
-        img: "img/item1.jpeg"
+        img: "img/item2.jpeg"
     },
     {
         id : 3,
         title : "Navarro Correas Espumante",
         description : "Vino espumante bodega Navarro Correas. Recomendado",
         price : 700,
-        stock: 30,
+        stock: 0,
         category: "espumantes",
-        img: "img/item1.jpeg"
+        img: "img/item3.jpeg"
     }
 ]
