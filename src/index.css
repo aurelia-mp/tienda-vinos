@@ -48,9 +48,10 @@ body, button{
 
 /* Estilos de Footer */
 .footer{
-  position: fixed;
+  position: sticky;
   left: 0;
   bottom: 0;
+  height: 50px;
   width: 100%;
   background-color:lightgrey;
   color: white;
@@ -58,14 +59,11 @@ body, button{
 }
 
 /* Estilos de Counter */ 
-.counterBlock, .itemCard{
-  text-align: center;
-  width: 20%;
-  margin-left: 50px;
-  padding: 15px;
-  border-style: solid;
-  border-width: 0.5px;
-  border-color: black;
+.counterBlock{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
 }
 
 .counterBlock button{
@@ -73,6 +71,7 @@ body, button{
   background-color: #0e52b7d8 ;
   color: white;
   padding: 10px;
+  width: 200px;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -95,7 +94,7 @@ body, button{
 }
 
 .counter .counterButton{
-  width: 30px;
+  width: 40px;
   height: 30px;
   padding: 0;
   background-color: black;
@@ -145,5 +144,34 @@ body, button{
   color: rgb(0, 0, 0);
   padding: 10px;
   text-transform: uppercase;
+  font-weight: 200;
+}
+
+/* Estilo de Item Detail */
+
+.itemDetailContainer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 50px;
+  padding: 20px;
+  width: 60%;
+  border: black solid 0.5px;
+}
+
+.itemDetailContainer img{
+  height: 400px;
+}
+.itemDetailContainer h1{
+  color:rgb(103, 103, 103);
+  margin-bottom: 50px;
+}
+
+.itemDetailContainer p{
+  padding-bottom: 15px;
+}
+
+.itemDetailContainer .price{
+  color:rgb(103, 103, 103);
   font-weight: 200;
 }

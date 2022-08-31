@@ -1,6 +1,6 @@
-import ItemListContainer from "./components/Items/ItemListContainer/ItemListContainer";
+import ItemListContainer from "./components/Items/ItemListContainer";
 import NavBar from "./components/Header/NavBar";
-import ItemCount from "./components/ItemCount/ItemCount";
+import { ItemDetailContainer } from "./components/Items/ItemDetailContainer";
 
 function App() { 
   const onAdd = (cantidad, articulo) =>{
@@ -13,7 +13,7 @@ function App() {
         <NavBar />
       </header>
       <ItemListContainer saludo='Bienvenido a Tienda de Vinos. Sitio en construcción' />
-      <ItemCount stock='10' initial='0' onAdd={onAdd}/>
+      <ItemDetailContainer onAdd={onAdd} />
       <footer className="footer">
         <p>Footer</p>
       </footer>

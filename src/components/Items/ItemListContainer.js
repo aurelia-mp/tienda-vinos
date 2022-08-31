@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import estilos from './items.module.css'
-import { productos } from '../../../productos';
+import { productos } from '../../productos';
 import ItemList from './ItemList';
 
 const ItemListContainer = ({saludo}) => {
