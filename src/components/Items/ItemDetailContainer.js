@@ -5,13 +5,13 @@ import { ItemDetail } from "./ItemDetail"
 
 // Falta el loader (optativo)
 export const ItemDetailContainer = ({onAdd}) =>{
-    const [item, setItem] = useState([])
+    const [item, setItem] = useState({})
 
     useEffect(() =>{
         const buscarProducto = new Promise ((res, rej) => {
             setTimeout(()=>{
-                const productoBuscado = productos.filter((prod) => prod.id===2)
-                res(productoBuscado[0])
+                const productoBuscado = productos.find((prod) => prod.id===2)
+                res(productoBuscado)
             }, 2000)
         })
     
@@ -20,8 +20,10 @@ export const ItemDetailContainer = ({onAdd}) =>{
                 setItem(producto)
             })
             .catch((error) => console.log(error))
+
     }, [])
 
+    console.log(item)
 
     return(
         <div>
