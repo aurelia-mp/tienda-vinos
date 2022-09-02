@@ -17,7 +17,7 @@ export const ItemDetail = ({item, onAdd}) => {
             {cargado &&     
                 <div className="itemDetailContainer">
                     <div>
-                        <img src={item.img} alt={item.description}/>
+                        <img src={`/${item.img}`} alt={item.description}/>
                     </div>
                     <div>
                         <h1>{item.title}</h1>

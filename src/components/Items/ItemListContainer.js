@@ -2,22 +2,29 @@ import React, { useState, useEffect } from 'react'
 import estilos from './items.module.css'
 import { productos } from '../../productos';
 import ItemList from './ItemList';
+import { useParams } from 'react-router-dom';
 
 const ItemListContainer = ({saludo}) => {
   const[items, setItems] = useState([]);
+  const {id} = useParams();
+  
+
 
   useEffect(()=>{
     const cargarProductos = new Promise ((resolve, reject) => {
-      setTimeout(resolve(productos), 2000);
-    })
-
-    cargarProductos
-      .then((datos) => {
-        setItems(datos);
+        const productoFiltrados = productos.filter((producto) => producto.category === id);
+        setTimeout(() => {
+          resolve(id? productoFiltrados : productos)
+        }, 2000);
       })
-      .catch(error => console.log("Error al cargar los productos"))
-  }, []);
   
+      cargarProductos
+        .then((datos) => {
+          setItems(datos);
+        })
+        .catch(error => console.log("Error al cargar los productos"))
+    
+  }, [id]);
 
   return (
     <div className={estilos.mainContainer}>

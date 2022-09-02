@@ -25,5 +25,23 @@ export const productos = [
         stock: 0,
         category: "espumantes",
         img: "img/item3.jpeg"
-    }
+    },
+    {
+        id : 4,
+        title : "Luigi Bosca Cabernet Sauvignon",
+        description : "Vino bodega Luigi Bosca. Ideal para acompañar carnes",
+        price : 550,
+        stock: 40,
+        category: "tintos",
+        img: "img/item4.jpeg"
+    },
+    {
+        id : 5,
+        title : "Trumpeter Malbec",
+        description : "Vino bodega Trumpeter. Excelente relación precio/calidad.",
+        price : 200,
+        stock: 15   ,
+        category: "tintos",
+        img: "img/item5.jpeg"
+    },
 ]

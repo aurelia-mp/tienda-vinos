@@ -1,23 +1,22 @@
-import ItemListContainer from "./components/Items/ItemListContainer";
 import NavBar from "./components/Header/NavBar";
-import { ItemDetailContainer } from "./components/Items/ItemDetailContainer";
+import { BrowserRouter } from 'react-router-dom'
+import Main from "./components/Main";
 
 function App() { 
   const onAdd = (cantidad, articulo) =>{
-    console.log(`${cantidad} ${articulo} agregados al carrito`)
+    alert(`${cantidad} ${articulo} agregados al carrito`)
   }
 
   return (
-    <div>
+    <BrowserRouter>
       <header>
         <NavBar />
       </header>
-      <ItemListContainer saludo='Bienvenido a Tienda de Vinos. Sitio en construcción' />
-      <ItemDetailContainer onAdd={onAdd} />
+      <Main onAdd={onAdd}/>
       <footer className="footer">
         <p>Footer</p>
       </footer>
-    </div>
+    </BrowserRouter>
   );
 }
 

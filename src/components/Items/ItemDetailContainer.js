@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react"
 import { productos } from "../../productos"
 import { ItemDetail } from "./ItemDetail"
+import { useParams } from "react-router-dom"
 
-
-// Falta el loader (optativo)
 export const ItemDetailContainer = ({onAdd}) =>{
+    const {id} = useParams()
+
     const [item, setItem] = useState({})
 
     useEffect(() =>{
         const buscarProducto = new Promise ((res, rej) => {
             setTimeout(()=>{
-                const productoBuscado = productos.find((prod) => prod.id===2)
+                const productoBuscado = productos.find((prod) => prod.id===Number(id))
                 res(productoBuscado)
             }, 2000)
         })
@@ -23,12 +24,7 @@ export const ItemDetailContainer = ({onAdd}) =>{
 
     }, [])
 
-    console.log(item)
-
     return(
-        <div>
-            <ItemDetail item={item} onAdd={onAdd}/>
-        </div>
-
+            <ItemDetail item={item} onAdd={onAdd}/> 
     )
 }
