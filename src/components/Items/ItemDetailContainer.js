@@ -22,7 +22,7 @@ export const ItemDetailContainer = ({onAdd}) =>{
             })
             .catch((error) => console.log(error))
 
-    }, [])
+    }, [id])
 
     return(
             <ItemDetail item={item} onAdd={onAdd}/> 

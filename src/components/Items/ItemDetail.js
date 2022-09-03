@@ -1,20 +1,9 @@
 import ItemCount from "../ItemCount/ItemCount"
 
 export const ItemDetail = ({item, onAdd}) => {
-    let cargado = false;
-    const isLoaded = () => {
-        if(item.id === undefined){
-            cargado = false
-        }
-        else {
-            cargado = true
-        }
-    }
-    isLoaded()
-
     return(   
         <>
-            {cargado &&     
+            {item.id &&     
                 <div className="itemDetailContainer">
                     <div>
                         <img src={`/${item.img}`} alt={item.description}/>
