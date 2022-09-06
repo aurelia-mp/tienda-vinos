@@ -3,7 +3,7 @@ import { productos } from "../../productos"
 import { ItemDetail } from "./ItemDetail"
 import { useParams } from "react-router-dom"
 
-export const ItemDetailContainer = ({onAdd}) =>{
+export const ItemDetailContainer = () =>{
     const {id} = useParams()
 
     const [item, setItem] = useState({})
@@ -25,6 +25,6 @@ export const ItemDetailContainer = ({onAdd}) =>{
     }, [id])
 
     return(
-            <ItemDetail item={item} onAdd={onAdd}/> 
+            <ItemDetail item={item}/> 
     )
 }

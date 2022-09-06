@@ -1,16 +1,16 @@
 import React, {useState} from 'react'
 
-const ItemCount = ({item, initial, onAdd}) => {
+const ItemCount = ({stock, initial, onAdd}) => {
     const [counter, setCounter] = useState(0)
 
     const sumar = () => {
-        counter<item.stock ? setCounter(counter + 1) : alert("Stock insuficiente. Beber con moderación")
+        counter<stock ? setCounter(counter + 1) : alert("Stock insuficiente. Beber con moderación")
     }
 
     const restar = () => {
         counter>initial && setCounter(counter - 1) 
     }
-    const itemName=item.title
+    // const itemName=item.title
 
   return (
     <div className="counterBlock">
@@ -19,7 +19,7 @@ const ItemCount = ({item, initial, onAdd}) => {
           <p>{counter}</p>
           <button className="counterButton" onClick={sumar}>+</button>
         </div>
-        <button disabled={counter=== 0? true:false} onClick={() => onAdd(counter, itemName)}>Agregar al Carrito</button>
+        <button disabled={counter=== 0? true:false} onClick={() => onAdd(counter)}>Agregar al Carrito</button>
     </div>
   )
 }

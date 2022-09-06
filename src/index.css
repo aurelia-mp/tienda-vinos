@@ -183,3 +183,7 @@ body, button{
   color:rgb(103, 103, 103);
   font-weight: 200;
 }
+
+.carrito{
+  margin: 50px;
+}
