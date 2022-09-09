@@ -12,7 +12,12 @@ export const CartContextProvider = ({children}) => {
     // funciones
     // Ver si un item está en el carrito
     const isInCart = (itemId) => {
-       cart.some((elt) => elt.id===itemId)  
+        if (cart.find((elt) => elt.id===itemId)){
+            return true
+        }
+        else{
+            return false
+        }
     } 
 
     // 1. AGREGAR UN ITEM AL CARRITO
@@ -29,7 +34,7 @@ export const CartContextProvider = ({children}) => {
         else{
             // Si el item no está en el cart, agregarlo
             let nuevoItem = {...item, cantidad}
-            setCart([...cart, nuevoItem]) // EL CART SOLAMENTE SE VE CON EL CONSOLE.LOG DESDE FUERA DE LA FUNCIONA
+            setCart([...cart, nuevoItem]) 
         }
     }
 
@@ -52,7 +57,7 @@ export const CartContextProvider = ({children}) => {
 
     console.log('Detalle del carrito', cart)
 
-    return <CartContext.Provider value = {{cart, addItem, clearCart, removeItem, isInCart}}>
+    return <CartContext.Provider value = {{cart, addItem, clearCart, removeItem}}>
         {children}
     </CartContext.Provider>
 }

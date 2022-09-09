@@ -8,8 +8,6 @@ const Cart = () => {
 
   // Cálculo del total del carrito
   const totalCarrito = cart.reduce((x, y) => x + y.price*y.cantidad, 0)
-
-  console.log(totalCarrito)
   
   return (
     <div className='cartContainer'> 
