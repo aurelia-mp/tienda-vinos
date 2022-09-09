@@ -7,10 +7,6 @@ export const ItemDetail = ({item}) => {
     const [cantidad, setCantidad] = useState(0)
     const {addItem, clearCart, removeItem} = useContext(CartContext)
 
-    useEffect(()=>{
-        console.log("se actualizó la cantidad: ", cantidad)
-      }, [cantidad]);
-
     const onAdd = (item, cantidad) =>{
         alert(`${cantidad} agregados al carrito`)
         setCantidad(cantidad)
