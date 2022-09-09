@@ -8,8 +8,6 @@ const ItemListContainer = ({saludo}) => {
   const[items, setItems] = useState([]);
   const {id} = useParams();
   
-
-
   useEffect(()=>{
     const cargarProductos = new Promise ((resolve, reject) => {
         const productoFiltrados = productos.filter((producto) => producto.category === id);

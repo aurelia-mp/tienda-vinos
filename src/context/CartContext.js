@@ -12,12 +12,7 @@ export const CartContextProvider = ({children}) => {
     // funciones
     // Ver si un item está en el carrito
     const isInCart = (itemId) => {
-        if (cart.find((elt) => elt.id===itemId)){
-            return true
-        }
-        else{
-            return false
-        }
+       cart.some((elt) => elt.id===itemId)  
     } 
 
     // 1. AGREGAR UN ITEM AL CARRITO
@@ -57,7 +52,7 @@ export const CartContextProvider = ({children}) => {
 
     console.log('Detalle del carrito', cart)
 
-    return <CartContext.Provider value = {{cart, addItem, clearCart, removeItem}}>
+    return <CartContext.Provider value = {{cart, addItem, clearCart, removeItem, isInCart}}>
         {children}
     </CartContext.Provider>
 }
