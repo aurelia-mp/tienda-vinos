@@ -21,8 +21,8 @@ export const productos = [
         id : 3,
         title : "Navarro Correas Espumante",
         description : "Vino espumante bodega Navarro Correas. Recomendado",
-        price : 700,
-        stock: 0,
+        price : 400,
+        stock: 100,
         category: "espumantes",
         img: "img/item3.jpeg"
     },
