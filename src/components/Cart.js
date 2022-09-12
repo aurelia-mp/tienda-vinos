@@ -2,6 +2,7 @@ import React from 'react'
 import Form from './Form'
 import { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
+import { Link } from 'react-router-dom'
 
 const Cart = () => {
   const {cart, clearCart, removeItem} = useContext(CartContext)
@@ -23,7 +24,7 @@ const Cart = () => {
                     <th>Articulo</th>
                     <th>Cantidad</th>
                     <th>Precio unitario</th>
-                    <th>Total</th>
+                    <th>Total (AR$)</th>
                     <th></th>
                   </tr>
                 </thead>
@@ -31,28 +32,38 @@ const Cart = () => {
                   {cart.map((item) => {
                     return(
                       <tr key={item.id}>
-                        <td><img src={`/${item.img}`} alt={item.title}/></td>
-                        <td>{item.title}</td>
-                        <td>{item.cantidad}</td>
-                        <td>{item.price}</td>
-                        <td>{`${item.price * item.cantidad}`}</td>
-                        <td><span className="material-symbols-outlined" onClick={()=>removeItem(item.id)}>
-delete</span></td>
+                        
+                          <td><Link to={`/item/${item.id}`}><img src={`/${item.img}`} alt={item.title}/></Link></td>
+                          <td><Link to={`/item/${item.id}`}>{item.title}</Link></td>
+                          <td>{item.cantidad}</td>
+                          <td>{item.price}</td>
+                          <td>{`${item.price * item.cantidad}`}</td>
+                          <td><span className="material-symbols-outlined" onClick={()=>removeItem(item.id)}>
+  delete</span></td>      
                       </tr>
                     )   
                   })}
                 </tbody>
+                <tfoot>
+                  <tr>
+                    <td colSpan = "4" id="total">Total</td>
+                    <td colSpan = "1">{totalCarrito}</td>
+                  </tr>
+              </tfoot>
               </table>
-              <div className='totalCarrito'>
-                <h3 >Total de tu compra: AR${totalCarrito}</h3>
-                <button onClick={clearCart}>Vaciar carrito</button>
+              <div className='vaciarCarrito'>
+                <button className="botonDanger" onClick={clearCart}>Vaciar carrito</button>
               </div>
+
             </>
 
             :
 
           // SIN ITEMS EN EL CARRITO
-            <p>Tu carrito está vacío</p>
+            <div className='cartVacio'>
+              <p>Tu carrito está vacío</p>
+              <Link to="/" className='botonDanger'>Elegir Vinos</Link>
+            </div>
         }
       </div>
       <Form />

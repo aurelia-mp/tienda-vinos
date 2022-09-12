@@ -7,6 +7,11 @@ body, button{
   -moz-osx-font-smoothing: grayscale;
 }
 
+a{
+  text-decoration: none;
+}
+
+/* Estilos de botones */
 button{
   border-width: 0;
   background-color: #0e52b7d8 ;
@@ -17,16 +22,8 @@ button{
   margin: 10px;
 }
 
-
-
-/* Estilos de botones */
-.botonAzul{
-  border-width: 0;
-  background-color: #0e52b7d8 ;
-  color: white;
-  padding: 10px;
-  text-transform: uppercase;
-  font-weight: bold;
+button:hover{
+  cursor:pointer;
 }
 
 .botonAzul:disabled{
@@ -87,13 +84,11 @@ button{
 
 .navBar .links{
   color: black;
-  text-decoration: none;
 }
 
 .navBar .links:hover{
   color: #722F37;
 }
-
 
 /* Estilos de Footer */
 .footer{
@@ -133,6 +128,8 @@ button{
   background-color: black;
 }
 
+/* Estilo de Item Detail */
+
 .itemCard{
   display: flex;
   flex-direction: column;
@@ -164,25 +161,21 @@ button{
   text-decoration: none;
 }
 
-.itemCard button{
-  border-width: 0;
-  background-color: #0e52b7d8 ;
+.itemCard .tags:hover{
+  text-decoration: underline;
+}
+
+.itemCardBotones{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.itemCardBotones a{
   color: white;
-  padding: 10px;
-  text-transform: uppercase;
   font-weight: bold;
 }
-
-.itemCard .sinStock{
-  border-width: 0;
-  background-color: #676b72d8 ;
-  color: rgb(0, 0, 0);
-  padding: 10px;
-  text-transform: uppercase;
-  font-weight: 200;
-}
-
-/* Estilo de Item Detail */
 
 .itemDetailContainer{
   display: flex;
@@ -223,6 +216,7 @@ button{
   flex-direction: row;
   align-items: center;
 }
+
 #botonVaciar {
   margin: 10px;
   width: 150px;
@@ -233,22 +227,48 @@ button{
   margin: 50px;
 }
 
-.cartContainer table, tr{
-  width: 80%;
-  border: 0.5px solid;
+.cartContainer table{
+  width: 90%;
   padding: 20px;
   text-align: center;
+  border-collapse: collapse;
 }
+
+.cartTable a{
+  color: black
+}
+
+.cartTable span{
+  cursor: pointer
+} 
 
 .cartContainer thead{
  text-transform: uppercase;
+ margin-bottom: 10px;
+ border-collapse: collapse;
+ background-color:whitesmoke;
+ height: 80px;
 }
+
+.cartContainer tfoot{
+  text-align: center;
+  height: 80px;
+ }
 
 .cartTable img{
   width: 100px;
 }
 
-.totalCarrito {
-  width: 80%;
+#total{
   text-align: right;
+  text-transform: uppercase;
+}
+
+.vaciarCarrito{
+  width: 90%;
+  text-align: right;
+}
+
+.cartVacio, .cartVacio p{
+  margin-bottom: 50px;
 }

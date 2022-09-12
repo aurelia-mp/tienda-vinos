@@ -13,7 +13,7 @@ export const productos = [
         title : "Luigi Bosca Sauvignon Blanc",
         description : "Vino bodega Luigi Bosca. Beber frío",
         price : 400,
-        stock: 20,
+        stock: 10,
         category: "blancos",
         img: "img/item2.jpeg"
     },

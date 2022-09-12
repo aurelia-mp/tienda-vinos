@@ -8,8 +8,8 @@ const Item = ({item}) => {
         <p>{item.description}</p>
         <p>{item.precio}</p>
         <img src={`/${item.img}`} alt={item.title}/>
-        <button className={item.stock === 0 ? "sinStock" : undefined}>Stock: {item.stock}</button>
-        <Link to={`/item/${item.id}`}><button>Ver detalles</button></Link>
+        <p>Stock: {item.stock}</p>
+        <Link to={`/item/${item.id}`}><button className="botonNegro">Ver detalles</button></Link>
         <Link to={`/category/${item.category}`}><p className="tags">Categoría: {item.category}</p></Link>
     </div>         
   )

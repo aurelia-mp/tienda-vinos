@@ -1,7 +1,12 @@
 import React, {useState} from 'react'
+import { useEffect } from 'react'
 
-const ItemCount = ({stock, initial, onAdd, item}) => {
-    const [counter, setCounter] = useState(0)
+const ItemCount = ({stock, initial = 0, onAdd, item}) => {
+    const [counter, setCounter] = useState(initial)
+    
+    useEffect(()=>{
+      setCounter(initial)
+    }, [initial])
 
     const sumar = () => {
         counter<stock ? setCounter(counter + 1) : alert("Stock insuficiente. Beber con moderación")
@@ -18,8 +23,11 @@ const ItemCount = ({stock, initial, onAdd, item}) => {
           <p>{counter}</p>
           <button className="counterButton" onClick={sumar}>+</button>
         </div>
-        <button className="botonAzul" disabled={counter=== 0? true:false} onClick={() => onAdd(item, counter)}>Agregar al Carrito</button>
-
+          {initial === 0 ? 
+          <button className="botonAzul" disabled={counter=== 0? true:false} onClick={() => onAdd(item, counter)}>Agregar al Carrito</button>
+          :
+          <button className="botonAzul" onClick={() => onAdd(item, counter)}>Actualizar cantidad</button>
+        }
     </div>
   )
 }

@@ -27,7 +27,7 @@ export const CartContextProvider = ({children}) => {
             // Si el item está en el cart, actualizar cantidad
             let newCart = [...cart]
             let index = newCart.findIndex((elt) => elt.id === item.id)
-            newCart[index].cantidad += cantidad
+            newCart[index].cantidad = cantidad
             setCart(newCart)
         }
 
@@ -57,7 +57,13 @@ export const CartContextProvider = ({children}) => {
 
     console.log('Detalle del carrito', cart)
 
-    return <CartContext.Provider value = {{cart, addItem, clearCart, removeItem}}>
+    // 4. Devolver la cantidad de un producto en el carrito
+    const contarCantidad = (id) => {
+        const producto = cart.find((prod) => prod.id === id)
+        return producto?.cantidad
+    }
+
+    return <CartContext.Provider value = {{cart, addItem, clearCart, removeItem, contarCantidad}}>
         {children}
     </CartContext.Provider>
 }

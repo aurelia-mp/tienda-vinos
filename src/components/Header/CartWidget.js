@@ -9,7 +9,9 @@ const CartWidget = () => {
   return (
     <div className='cart'>
         <span className="material-symbols-outlined">shopping_cart</span>
-        <p>{totalItems}</p>
+        {totalItems > 0 && 
+          <p>{totalItems}</p>
+        }
     </div>
   )
 }
