@@ -1,30 +1,41 @@
 import { useState, useEffect } from "react"
-import { productos } from "../../productos"
 import { ItemDetail } from "./ItemDetail"
 import { useParams } from "react-router-dom"
+import {getDoc, doc, collection} from 'firebase/firestore'
+import { db } from "../../firebaseConfig"
 
 export const ItemDetailContainer = () =>{
     const {id} = useParams()
 
     const [item, setItem] = useState({})
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() =>{
-        const buscarProducto = new Promise ((res, rej) => {
-            setTimeout(()=>{
-                const productoBuscado = productos.find((prod) => prod.id===Number(id))
-                res(productoBuscado)
-            }, 2000)
+        const itemCollection = collection(db, 'productos')
+        const prod = doc(itemCollection, id)
+        
+        getDoc(prod)
+        .then((res)=>{
+            setItem({
+                id: id,
+                ...res.data()
+            }
+            )
+            setIsLoading(false)
         })
+        .catch((error) => console.log(error))
     
-        buscarProducto
-            .then((producto) => {
-                setItem(producto)
-            })
-            .catch((error) => console.log(error))
+        setIsLoading(true)
 
     }, [id])
 
     return(
-            <ItemDetail item={item}/> 
+        <>
+            {isLoading ? 
+                <div className="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                :
+                <ItemDetail item={item}/> 
+            }
+        </>
     )
 }
