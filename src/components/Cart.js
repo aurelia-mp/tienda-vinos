@@ -18,7 +18,6 @@ const Cart = () => {
     clearCart()
   }
 
-  // Cálculo del total del carrito
   const totalCarrito = cart.reduce((x, y) => x + y.price*y.cantidad, 0)
   
   return (
@@ -29,17 +28,13 @@ const Cart = () => {
       <h2>Tu carrito</h2>
       <div>
         {cart.length !== 0 ?
-          // RENDERIZADO CARRITO
             <>
               <CartList items={cart} removeItem={removeItem} totalCarrito={totalCarrito} isCart={isCart}/>
               <div className='vaciarCarrito'>
               <button className="botonDanger" onClick={clearCart}>Vaciar carrito</button>
               </div>
             </>
-
             :
-
-          // SIN ITEMS EN EL CARRITO
             <div className='cartVacio'>
               <p>Tu carrito está vacío</p>
               <Link to="/" className='botonDanger'>Elegir Vinos</Link>
@@ -49,8 +44,6 @@ const Cart = () => {
       <h3>Para finalizar tu compra, por favor ingresá los datos a continuación:</h3>
       <Form cart={cart} totalCarrito={totalCarrito} confirmarCompra={confirmarCompra}/>
       </div>
-
-    
   )
 }
 

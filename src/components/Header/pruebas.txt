@@ -1,5 +1,0 @@
-<div className='linksContainer'>
-                <NavLink className='links' to="/category/tintos">Tintos</NavLink>
-                <NavLink className='links' to="/category/blancos">Blancos</NavLink>
-                <NavLink className='links' to="/category/espumantes">Espumantes</NavLink>
-            </div>

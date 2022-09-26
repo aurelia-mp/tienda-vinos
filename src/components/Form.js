@@ -1,4 +1,4 @@
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
+import { addDoc, collection, doc, getDoc, serverTimestamp, updateDoc } from 'firebase/firestore'
 import React from 'react'
 import { useState } from 'react'
 import { db } from '../firebaseConfig'
@@ -31,7 +31,25 @@ const Form = ({cart, totalCarrito, confirmarCompra}) => {
         .then((res) => {
           confirmarCompra(res.id, order)
         })
-    }
+
+      // Modificar los stocks de los items en la base de datos
+      const itemsCollection = collection(db,'productos')
+      
+      const updateStock = (itemId, cantidadComprada) => {
+        const itemDoc = doc(itemsCollection, itemId)
+        getDoc(itemDoc)
+        .then((res) =>{
+            const newStock = res.data().stock - cantidadComprada;
+            updateDoc(itemDoc, {stock : newStock})          
+          }
+        )
+      }
+
+      order.items.forEach(element => {
+        const docId = element.id;
+        updateStock(docId, element.cantidad)
+      });
+     }
 
     const handleNameChange = (event) => {
         event.preventDefault()
