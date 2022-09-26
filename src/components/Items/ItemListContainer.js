@@ -13,13 +13,12 @@ const ItemListContainer = ({saludo}) => {
   useEffect(()=>{
     const itemCollection = collection(db, 'productos');
 
-    // Si la URL incluye un ID de categoría, solo se renderizará esa categoría
     const productosARenderizar = () => {
       if (id){
         return query(itemCollection, where("category", "==", id))
       }
       else{
-        return collection(db, 'productos');
+        return itemCollection;
       }
     }
 
@@ -56,22 +55,4 @@ const ItemListContainer = ({saludo}) => {
 export default ItemListContainer
 
 
-
-// getDocs con setTimeOut para probar el spinner
-// getDocs(productosARenderizar())
-//       .then((res)=>{
-//         setTimeout(() => {
-//           const products = res.docs.map((prod) => {
-//             return{
-//               id: prod.id,
-//               ...prod.data(), 
-//             };
-          
-//           });
-//           setItems(products)
-//           setIsLoading(false)
-//         }, 2000)
-        
-//       })
-//       .catch(error => console.log("Error al cargar los productos"))
 

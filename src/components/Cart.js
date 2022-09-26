@@ -1,60 +1,40 @@
 import React from 'react'
 import Form from './Form'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { CartContext } from '../context/CartContext'
-import { Link } from 'react-router-dom'
+import { Link} from 'react-router-dom'
+import Order from './Order'
+import CartList from './CartList'
 
 const Cart = () => {
   const {cart, clearCart, removeItem} = useContext(CartContext)
+  const [orden, setOrden] = useState({})
+  const [idCompra, setIdCompra] = useState('')
+  const isCart= true;
+
+  const confirmarCompra = (id, orden) => {
+    setIdCompra(id)
+    setOrden(orden)
+    clearCart()
+  }
 
   // Cálculo del total del carrito
   const totalCarrito = cart.reduce((x, y) => x + y.price*y.cantidad, 0)
   
   return (
+    idCompra ?
+       <Order id={idCompra} orden={orden}/>
+    :
     <div className='cartContainer'> 
       <h2>Tu carrito</h2>
       <div>
         {cart.length !== 0 ?
           // RENDERIZADO CARRITO
             <>
-              <table className='cartTable'>
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>Articulo</th>
-                    <th>Cantidad</th>
-                    <th>Precio unitario</th>
-                    <th>Total (AR$)</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cart.map((item) => {
-                    return(
-                      <tr key={item.id}>
-                        
-                          <td><Link to={`/item/${item.id}`}><img src={`/${item.img}`} alt={item.title}/></Link></td>
-                          <td><Link to={`/item/${item.id}`}>{item.title}</Link></td>
-                          <td>{item.cantidad}</td>
-                          <td>{item.price}</td>
-                          <td>{`${item.price * item.cantidad}`}</td>
-                          <td><span className="material-symbols-outlined" onClick={()=>removeItem(item.id)}>
-  delete</span></td>      
-                      </tr>
-                    )   
-                  })}
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <td colSpan = "4" id="total">Total</td>
-                    <td colSpan = "1">{totalCarrito}</td>
-                  </tr>
-              </tfoot>
-              </table>
+              <CartList items={cart} removeItem={removeItem} totalCarrito={totalCarrito} isCart={isCart}/>
               <div className='vaciarCarrito'>
-                <button className="botonDanger" onClick={clearCart}>Vaciar carrito</button>
+              <button className="botonDanger" onClick={clearCart}>Vaciar carrito</button>
               </div>
-
             </>
 
             :
@@ -66,8 +46,11 @@ const Cart = () => {
             </div>
         }
       </div>
-      <Form />
-    </div>
+      <h3>Para finalizar tu compra, por favor ingresá los datos a continuación:</h3>
+      <Form cart={cart} totalCarrito={totalCarrito} confirmarCompra={confirmarCompra}/>
+      </div>
+
+    
   )
 }
 
