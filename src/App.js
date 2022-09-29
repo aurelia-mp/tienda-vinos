@@ -1,4 +1,5 @@
 import NavBar from "./components/Header/NavBar";
+import Footer from "./components/Footer";
 import { BrowserRouter } from 'react-router-dom'
 import Main from "./components/Main";
 import { CartContextProvider } from "./context/CartContext";
@@ -12,9 +13,7 @@ function App() {
           <NavBar />
         </header>
         <Main />
-        <footer className="footer">
-          <p>Footer</p>
-        </footer>
+        <Footer />
       </BrowserRouter>
     </CartContextProvider>
   );

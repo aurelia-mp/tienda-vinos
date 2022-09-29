@@ -18,15 +18,16 @@ const ItemCount = ({stock, initial = 0, onAdd, item}) => {
 
   return (
     <div className="counterBlock">
-          <div className="counter">
-          <button className="counterButton" onClick={restar}>-</button>
+        <div className="counter">
+          <button className="btn counterButton" onClick={restar}>-</button>
           <p>{counter}</p>
-          <button className="counterButton" onClick={sumar}>+</button>
+          <button className="btn counterButton" onClick={sumar}>+</button>
         </div>
           {initial === 0 ? 
-          <button className="botonAzul" disabled={counter=== 0? true:false} onClick={() => onAdd(item, counter)}>Agregar al Carrito</button>
+          <button className="btn botonNegro" disabled={counter=== 0? true:false} onClick={() => onAdd(item, counter)}>Agregar al Carrito</button>
           :
-          <button className="botonAzul" onClick={() => onAdd(item, counter)}>Actualizar cantidad</button>
+          <>
+            <button className="btn botonNegro" onClick={() => onAdd(item, counter)}>Actualizar cantidad</button>          </>
         }
     </div>
   )

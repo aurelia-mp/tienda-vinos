@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import estilos from './items.module.css'
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
 import { db } from '../../firebaseConfig';
@@ -34,14 +33,14 @@ const ItemListContainer = ({saludo}) => {
           setItems(products)
           setIsLoading(false)
       })
-      .catch(error => console.log("Error al cargar los productos"))
+      .catch(error => console.log("Error al cargar los productos" + error))
 
       setIsLoading(true)
   }, [id]);
 
   return (
-    <div className={estilos.mainContainer}>
-      <h1>{saludo}</h1>
+    <div className="mainContainer">
+      <h1>{saludo || `Todos los vinos de la categoría: ${id}`}</h1>
       {isLoading ? 
         <div className="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
       :

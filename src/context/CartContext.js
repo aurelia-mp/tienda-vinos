@@ -1,16 +1,11 @@
-import { createContext } from "react";
-import { useState } from "react";
-
+import { createContext, useState } from "react";
 
 export const CartContext = createContext()
 
 export const CartContextProvider = ({children}) => {
     
-    // estados
-    const [cart, setCart] = useState([] )
-
-    // funciones
-    // Ver si un item está en el carrito
+    const [cart, setCart] = useState([])
+    
     const isInCart = (itemId) => {
         if (cart.find((elt) => elt.id===itemId)){
             return true
@@ -20,11 +15,9 @@ export const CartContextProvider = ({children}) => {
         }
     } 
 
-    // 1. AGREGAR UN ITEM AL CARRITO
     const addItem = (item, cantidad) => {
         
         if(isInCart(item.id)) {
-            // Si el item está en el cart, actualizar cantidad
             let newCart = [...cart]
             let index = newCart.findIndex((elt) => elt.id === item.id)
             newCart[index].cantidad = cantidad
@@ -32,18 +25,15 @@ export const CartContextProvider = ({children}) => {
         }
 
         else{
-            // Si el item no está en el cart, agregarlo
             let nuevoItem = {...item, cantidad}
             setCart([...cart, nuevoItem]) 
         }
     }
 
-    // 2. REINICIAR EL CARRITO
     const clearCart = () =>{
         setCart([])
     } 
 
-    // 3. ELIMINAR ITEM
     const removeItem = (itemId) => {
         if(isInCart(itemId)){
             alert("Articulo eliminado")
@@ -55,15 +45,16 @@ export const CartContextProvider = ({children}) => {
         }
     }
 
-    console.log('Detalle del carrito', cart)
 
-    // 4. Devolver la cantidad de un producto en el carrito
     const contarCantidad = (id) => {
         const producto = cart.find((prod) => prod.id === id)
         return producto?.cantidad
     }
 
-    return <CartContext.Provider value = {{cart, addItem, clearCart, removeItem, contarCantidad}}>
+    const totalCarrito = cart.reduce((x, y) => x + y.price*y.cantidad, 0)
+
+
+    return <CartContext.Provider value = {{cart, addItem, clearCart, removeItem, contarCantidad, totalCarrito}}>
         {children}
     </CartContext.Provider>
 }

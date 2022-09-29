@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import ItemCount from "../ItemCount/ItemCount"
+import ItemCount from "./ItemCount"
 import { Link } from "react-router-dom"
 import { CartContext } from "../../context/CartContext"
 
@@ -26,7 +26,7 @@ export const ItemDetail = ({item}) => {
             {item.id &&     
                 <div className="itemDetailContainer">
                     <div>
-                        <img src={`/${item.img}`} alt={item.description}/>
+                        <img src={`/${item.img}`} alt={item.title}/>
                     </div>
                     <div className="itemDetailCart">
                         <h1>{item.title}</h1>
@@ -36,10 +36,12 @@ export const ItemDetail = ({item}) => {
                         <ItemCount stock={item.stock} initial={cantidadInicial} onAdd={onAdd} item={item}/>
                         { cantidad !== 0 && 
                             <>
-                                <p>{cantidad} unidad(es) en tu carrito</p>
+                                <p>{cantidad} unidad(es) en tu carrito
+                                <span className="material-symbols-outlined" onClick={()=>onRemove()}>
+              delete</span></p>
                                 <div className="itemCardBotones">
-                                    <button className="botonNegro"><Link to="/cart">Terminar mi compra</Link></button>
-                                    <button onClick={() => onRemove()} className="botonDanger">Eliminar del carrito</button>
+                                    <Link to="/">Agregar más productos</Link>
+                                    <button className="btn botonNegro"><Link to="/cart">Terminar mi compra</Link></button>
                                 </div>
                             </>
                           }

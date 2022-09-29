@@ -2,7 +2,9 @@ import React from 'react'
 import CartList from './CartList'
 
 const Order = ({id, orden}) => {
+
   const isCart=false
+
   return (
     <div className='cartContainer'>
       <h1>Compra confirmada! </h1>
@@ -16,6 +18,7 @@ const Order = ({id, orden}) => {
       <div>
         <CartList items={orden.items} totalCarrito={orden.total} isCart={isCart}/>
       </div>
+      <h2>¡Muchas gracias por comprar en Tienda de Vinos!</h2>
     </div>
   )
 }
