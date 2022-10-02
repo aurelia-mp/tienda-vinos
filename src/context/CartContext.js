@@ -15,15 +15,13 @@ export const CartContextProvider = ({children}) => {
         }
     } 
 
-    const addItem = (item, cantidad) => {
-        
+    const addItem = (item, cantidad) => {     
         if(isInCart(item.id)) {
             let newCart = [...cart]
             let index = newCart.findIndex((elt) => elt.id === item.id)
             newCart[index].cantidad = cantidad
             setCart(newCart)
         }
-
         else{
             let nuevoItem = {...item, cantidad}
             setCart([...cart, nuevoItem]) 
@@ -39,12 +37,10 @@ export const CartContextProvider = ({children}) => {
             alert("Articulo eliminado")
             setCart(cart.filter((elt) => elt.id !== itemId))
         }
-
         else{
             alert("No tenías ninguna unidad de este vino en tu carrito")
         }
     }
-
 
     const contarCantidad = (id) => {
         const producto = cart.find((prod) => prod.id === id)
@@ -53,8 +49,11 @@ export const CartContextProvider = ({children}) => {
 
     const totalCarrito = cart.reduce((x, y) => x + y.price*y.cantidad, 0)
 
+    const totalItems = cart.reduce((x, y) => x + y.cantidad, 0)
 
-    return <CartContext.Provider value = {{cart, addItem, clearCart, removeItem, contarCantidad, totalCarrito}}>
-        {children}
-    </CartContext.Provider>
+    return(
+        <CartContext.Provider value = {{cart, addItem, clearCart, removeItem, contarCantidad, totalCarrito, totalItems}}>
+            {children}
+        </CartContext.Provider>
+    )
 }

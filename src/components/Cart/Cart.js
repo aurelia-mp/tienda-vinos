@@ -12,22 +12,21 @@ const Cart = () => {
       <h2>Tu carrito</h2>
       <div>
         {cart.length !== 0 ?
-            <>
-              <CartList items={cart} removeItem={removeItem} totalCarrito={totalCarrito} isCart={isCart}/>
-              <div className='vaciarCarrito'>
-              <button className="btn botonDanger" onClick={clearCart}>Vaciar carrito</button>
-              <Link to='../confirmacion' className='btn botonNegro'>Confirmar compra</Link>
-              </div>
-            </>
-            :
-            <div className='cartVacio'>
-              <p>Tu carrito está vacío</p>
-              <Link to="/" className='btn botonDanger'>Elegir Vinos</Link>
+          <>
+            <CartList items={cart} removeItem={removeItem} totalCarrito={totalCarrito} isCart={isCart}/>
+            <div className='vaciarCarrito'>
+            <button className="btn botonDanger" onClick={clearCart}>Vaciar carrito</button>
+            <Link to='../confirmacion' className='btn botonNegro'>Confirmar compra</Link>
             </div>
+          </>
+          :
+          <div className='cartVacio'>
+            <p>Tu carrito está vacío</p>
+            <Link to="/" className='btn botonDanger'>Elegir Vinos</Link>
+          </div>
         }
       </div>
-      
-      </div>
+    </div>
   )
 }
 

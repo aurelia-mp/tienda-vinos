@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import {getFirestore} from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAPEQhsAJiOBVn3vTC_I-yiSffGVKRKeH4",
-  authDomain: "tiendavinos-coderhouse.firebaseapp.com",
-  projectId: "tiendavinos-coderhouse",
-  storageBucket: "tiendavinos-coderhouse.appspot.com",
-  messagingSenderId: "853532162587",
-  appId: "1:853532162587:web:ab2410c4222b0f7e3e16be"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID
 };
 
 const app = initializeApp(firebaseConfig);  

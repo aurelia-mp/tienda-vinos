@@ -13,7 +13,6 @@ const Form = () => {
     const [email, setEmail] = useState('')   
     const [orden, setOrden] = useState({})
     const [idCompra, setIdCompra] = useState('')
-    // const [isLoading, setIsLoading] = useState(true)
 
     const confirmarCompra = (id, orden) => {
       setIdCompra(id)
@@ -46,33 +45,33 @@ const Form = () => {
         })
         .catch(error => console.log("Error al crear la orden" + error))
 
-      const itemsCollection = collection(db,'productos')
-      
-      const updateStock = (itemId, cantidadComprada) => {
-        const itemDoc = doc(itemsCollection, itemId)
-        getDoc(itemDoc)
-        .then((res) =>{
-            const newStock = res.data().stock - cantidadComprada;
-            updateDoc(itemDoc, {stock : newStock})          
-          })
-        .catch(error => console.log("Error al actualizar el stock" + error))
+        const itemsCollection = collection(db,'productos')
+        
+        const updateStock = (itemId, cantidadComprada) => {
+          const itemDoc = doc(itemsCollection, itemId)
+          getDoc(itemDoc)
+          .then((res) =>{
+              const newStock = res.data().stock - cantidadComprada;
+              updateDoc(itemDoc, {stock : newStock})          
+            })
+          .catch(error => console.log("Error al actualizar el stock" + error))
 
+        }
+
+        order.items.forEach(element => {
+          const docId = element.id;
+          updateStock(docId, element.cantidad)
+        });
       }
 
-      order.items.forEach(element => {
-        const docId = element.id;
-        updateStock(docId, element.cantidad)
-      });
+      else{
+        alert("Error. Tu carrito está vacío. No se pudo crear tu orden")
+      }
     }
-
-    else{
-      alert("Error. Tu carrito está vacío. No se pudo crear tu orden")
-    }
-     }
 
     const handleNameChange = (event) => {
-        event.preventDefault()
-        setName(event.target.value)
+      event.preventDefault()
+      setName(event.target.value)
     }
 
     const handleLastNameChange = (event) => {

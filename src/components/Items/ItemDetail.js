@@ -4,10 +4,11 @@ import { Link } from "react-router-dom"
 import { CartContext } from "../../context/CartContext"
 
 export const ItemDetail = ({item}) => { 
-    const [cantidad, setCantidad] = useState(0)
     const {addItem, removeItem, contarCantidad} = useContext(CartContext)
+    let cantidadInicial
+    contarCantidad(item.id) && (cantidadInicial = contarCantidad(item.id))
 
-    let cantidadInicial = contarCantidad(item.id)
+    const [cantidad, setCantidad] = useState(cantidadInicial || 0)
 
     const onAdd = (item, cantidad) =>{
         setCantidad(cantidad)
@@ -19,7 +20,6 @@ export const ItemDetail = ({item}) => {
         cantidadInicial = 0
         removeItem(item.id)
     }
-
 
     return(   
         <>

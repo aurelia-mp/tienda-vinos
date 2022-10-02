@@ -33,7 +33,7 @@ const ItemListContainer = ({saludo}) => {
           setItems(products)
           setIsLoading(false)
       })
-      .catch(error => console.log("Error al cargar los productos" + error))
+      .catch(error => console.log(`Error al cargar los productos: ${error}`))
 
       setIsLoading(true)
   }, [id]);
@@ -43,7 +43,7 @@ const ItemListContainer = ({saludo}) => {
       <h1>{saludo || `Todos los vinos de la categoría: ${id}`}</h1>
       {isLoading ? 
         <div className="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-      :
+        :
         <ItemList items={items} />
       }
       

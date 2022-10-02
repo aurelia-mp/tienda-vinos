@@ -5,7 +5,6 @@ import Main from "./components/Main";
 import { CartContextProvider } from "./context/CartContext";
  
 function App() { 
-
   return (
     <CartContextProvider>
       <BrowserRouter>
