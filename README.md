@@ -14,7 +14,7 @@
 ##  Deploy del proyecto
 
 - El proyecto está hosteado en Vercel
-- Para ver el proyecto funcionando, ingresar a: `www.tiendadevinos.com`
+- Para ver el proyecto funcionando, ingresar a: <https://ZXX.com>
 
 ## ¿Cómo levantar el proyecto localmente?
 
