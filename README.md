@@ -13,8 +13,8 @@
 
 ##  Deploy del proyecto
 
-- El proyecto está hosteado en XXX
-- Para ver el proyecto funcionando, ingresar a: <https://>
+- El proyecto está hosteado con Vercel
+- Para ver el proyecto funcionando, ingresar a: <https://tienda-vinos.vercel.app/>
 
 ## ¿Cómo levantar el proyecto localmente?
 
