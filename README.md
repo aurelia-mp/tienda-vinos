@@ -13,8 +13,8 @@
 
 ##  Deploy del proyecto
 
-- El proyecto está hosteado en Vercel
-- Para ver el proyecto funcionando, ingresar a: <https://ZXX.com>
+- El proyecto está hosteado en GitHub Pages
+- Para ver el proyecto funcionando, ingresar a: <https://aurelia-mp.github.io/tienda-vinos/>
 
 ## ¿Cómo levantar el proyecto localmente?
 
