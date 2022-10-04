@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tienda-vinos/static/css/main.a7956d82.css",
+    "main.js": "/tienda-vinos/static/js/main.9be46b6b.js",
+    "index.html": "/tienda-vinos/index.html",
+    "main.a7956d82.css.map": "/tienda-vinos/static/css/main.a7956d82.css.map",
+    "main.9be46b6b.js.map": "/tienda-vinos/static/js/main.9be46b6b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a7956d82.css",
+    "static/js/main.9be46b6b.js"
+  ]
+}
