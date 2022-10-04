@@ -13,8 +13,8 @@
 
 ##  Deploy del proyecto
 
-- El proyecto está hosteado en GitHub Pages
-- Para ver el proyecto funcionando, ingresar a: <https://aurelia-mp.github.io/tienda-vinos/>
+- El proyecto está hosteado en XXX
+- Para ver el proyecto funcionando, ingresar a: <https://>
 
 ## ¿Cómo levantar el proyecto localmente?
 
